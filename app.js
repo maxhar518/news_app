@@ -1,7 +1,6 @@
 const news = document.getElementById("news")
 const search = document.getElementById('search')
 const newsForm = document.getElementById('newsForm')
-const resultNum = document.getElementById('resultNum')
 
 
 const getNews = async () => {
@@ -26,10 +25,7 @@ newsForm.addEventListener("submit", async (event) => {
 })
 
 const showNews = (info) => {
-    // news.innerHTML = ""
-    // if (info.totalResults != undefined) {
-    //     resultNum.innerHTML = `(${info.totalResults}) Results Found for ${search.value}`
-    // }
+    news.innerHTML = ""
 
     for (let item of info.results) {
         let description = item.description
@@ -45,12 +41,12 @@ const showNews = (info) => {
         myArray.push("...")
         myArray = myArray.join(" ")
 
-        news.innerHTML += `
+        news.innerHTML = news.innerHTML + `
         <div class="card m-4" style="width: 18rem;">
            <img src="${item.image_url}" class="card-img-top" alt="Can't load image">
             <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
-            <p class="card-text">${item.description}</p>
+            <p class="card-text">${myArray}</p>
             <a href="${item.link}" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
