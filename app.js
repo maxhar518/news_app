@@ -1,3 +1,9 @@
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/pwabuilder-sw.js') 
+    .then((reg) => console.log('service worker registered',reg))
+    .catch((err) => console.log('service worker not registered',err))
+ }
+ 
 const news = document.getElementById("news")
 const search = document.getElementById('search')
 const newsForm = document.getElementById('newsForm')
